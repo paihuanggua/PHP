@@ -1,0 +1,12 @@
+<?php
+require_once('./response.php');
+$arr=array(
+	'id'=>1,
+	'name'=>'zhaoguangzhi',
+	'type'=>array(4,5,6),
+	'test'=>array(22,23,24=>array(123,'lalala'),),
+);
+//Response::show(200,'数据返回成功',$arr);
+//Response::show(200,'数据返回成功',$arr,'json');
+Response::show(200,'数据返回成功',$arr,'xml');
+?>

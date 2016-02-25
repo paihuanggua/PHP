@@ -1,0 +1,8 @@
+string md5(string $str  [bool $raw_output=false])=>计算str的MD5散列值
+
+$str:原始字符串
+
+$raw_output =》如果可选的raw_output被设置为true，那么MD5报文摘要将以16字节的原始二进制格式返回。返回以32位字符十六进制数字形式返回散列值
+
+$str="imooc";
+

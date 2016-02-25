@@ -1,0 +1,65 @@
+导读
+
+shopImooc文件夹
+一、登录
+	1、shopImooc->lib->image.func.php->string.func.php 验证码
+	2、admin->login.php->admin->getVerify.php
+二、登录提交
+	1、admin->login.php->28->doLogin.php->core->admin.inc.php->common.func.php->index.php->admin.inc.php->checkLogined->index.php
+三、index.php退出
+	index.php->doAdminAction.php->admin.inc.php->注销操作
+四、自动登录功能
+	login.php->doLogin.php->8->admin.inc.php->11->index.php->22->admin.inc.php->注销操作
+五、管理员管理
+	1、添加管理员
+		index.php->main.php->index.php81-82->addAdmin.php->doAdminAction.php->admin.inc.php
+	2、管理员列表
+		index.php82->listAdmin.php->admin.inc.php得到所有管理员->listAdmin.php
+	3、修改管理员
+		listAdmin.php->editAdmin.php->doAdminAction.php->admin.inc.php修改管理员
+	4、删除管理员
+		listAdmin.php->doAdminAction.php->admin.inc.php删除管理员
+	5、添加管理员
+		listAdmin.php->addAdmin.php
+六、分页
+	1、lib->page.func.php分页封装
+	2、listAdmin.php添加分页 
+七、商品分类
+	1、index.php->添加分类->addCate.php->doAdminAction.php->core->cate.inc.php
+	2、index.php->查看分类->listCate.php
+	3、修改分类-同上
+	4、删除分类-同上
+八、商品管理
+
+	test文件夹
+	上传	
+		upload.php->doAction.php->string.func.php->getUniName()->getExt()->
+		上传封装 upload.func.php->例 doAction1.php
+		多个单文件上传upload1.php->doAction2.php
+		多文件上传upload2.php->doAction3.php
+		多文件上传函数封装doAction3.php->function uploadFile(){}
+	生成缩略图
+		resizeImage.php
+		resizeImage1   .php
+
+	1、添加商品--重要
+		addPro.php->cate.inc.php getAllCate->addPro.php->doAdminAction.php->core->pro.inc.php
+	2、商品列表
+		listPro.php->pro.inc.php getAllProByAdmin->listPro.php->pro.inc.php getAllImgByProId->
+	3、商品修改
+		listPro.php->editPro.php->pro.inc.php->doAdminAction.php->pro.inc.php editPro->upload.func.php
+	4、删除
+		listPro.php->doAdminAction.php->pro.inc.php->
+	5、搜索
+		listPro.php->page.func.php showPage
+	6、价格排序
+		listPro.php
+九、分类管理
+
+十、商品前台展示
+	index.php->pro.inc.php->
+
+
+
+
+

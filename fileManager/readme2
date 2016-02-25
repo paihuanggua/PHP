@@ -1,0 +1,57 @@
+__FUNCTION__ 返回 函数名称（PHP 4.3.0 新加）。自 PHP 5 起本常量返回该函数被定义时的名字（区分大小写）。在 PHP 4 中该值总是小写字母的。   
+__METHOD__   返回类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写）。  
+
+他们有什么不同之处呢？做个实验，一测便知.
+
+<?php
+    //定义方法
+    function outFunction(){
+        echo '__METHOD__ =>'.__METHOD__;
+        echo '<br>';
+        echo '__FUNCTION__ =>'.__FUNCTION__;
+    }
+
+
+    //定义类
+    class Test{
+        static function gongwen(){
+            echo '__METHOD__ =>'.__METHOD__;
+            echo '<br>';
+            echo '__FUNCTION__ =>'.__FUNCTION__;
+        }
+
+        static function bestphper(){
+            function innerFunction(){
+                echo '__METHOD__ =>'.__METHOD__;
+                echo '<br>';
+                echo '__FUNCTION__ =>'.__FUNCTION__;
+            }
+            innerFunction();
+        }
+    }
+
+    //测试
+    Test::gongwen();
+    echo '<hr>';
+    Test::bestphper();
+    echo '<hr>';
+    outFunction();
+?>
+
+结果:
+__METHOD__=>Test::gongwen
+__FUNCTION__=>gongwen
+----------------------------------------------------
+__METHOD__=>Test::innerFunction
+__FUNCTION__=>innerFunction
+----------------------------------------------------
+__METHOD__=>outFunction
+__FUNCTION__=>outFunction
+
+
+结论：
+
+情况一:
+    __FUNCTION__与__METHOD__ 同处于“类外”的函数体中,他们的返回值是一样一样滴.
+情况二:
+    __FUNCTION__与__METHOD__ 同处于“类内”的函数体中,__METHOD__ 比 __FUNCTION__前面多了个“类名::”

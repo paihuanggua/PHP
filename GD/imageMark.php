@@ -1,0 +1,36 @@
+<?php
+/*一、打开图片*/
+	//1、配置图片路径
+	$src="gd.jpg";
+	//2、获取图片的基本信息
+	$info=getimagesize($src);
+	//3、通过图像的编号来获取图片的类型
+	$type=image_type_to_extension($info[2],false);
+	//4、在内存中创建一个和我们图像类型一致的图像
+	$fun="imagecreatefrom{$type}";
+	//5、把要操作的图片复制到内存中
+	$image=$fun($src);
+/*二、操作图片*/
+	//1、设置水印路径
+	$image_Mark="index.png";
+	//2、获取水印图片的基本路径
+	$info2=getimagesize($image_Mark);
+	//3、通过水印的图像编号来获取水印的图片类型
+	$type2=image_type_to_extension($info2[2],false);
+	//4、在内存中创建一个和我们水印图像一致的图像类型
+	$fun2="imagecreatefrom{$type2}";
+	//5、把水印图片复制到内存中
+	$water=$fun2($image_Mark);
+	//6、合并图片
+	imagecopymerge($image, $water, 20, 30, 0, 0, $info2[0], $info2[1], 100);
+	//7、销毁水印 图片
+	imagedestroy($water);
+/*三、输出图片*/
+	header("Content-type:".$info2['mime']);
+	$func="image{$type}";//imagejpeg;imagepng
+	$func($image);
+	//保存图片
+	$func($image,'imageMark.'.$type);
+/*四销毁图片*/
+	imagedestroy($image);
+?>

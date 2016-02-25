@@ -1,0 +1,17 @@
+定义和用法
+dirname() 函数返回路径中的目录部分。
+语法
+dirname(path)
+参数	描述
+path	必需。规定要检查的路径。
+说明
+path 参数是一个包含有指向一个文件的全路径的字符串。该函数返回去掉文件名后的目录名。
+
+例子
+<?php
+echo dirname("c:/testweb/home.php");
+echo dirname("/testweb/home.php");
+?>
+输出：
+c:/testweb
+/testweb

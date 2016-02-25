@@ -1,0 +1,13 @@
+后台
+
+1、article-->admin-->article.add.php-->article.add.handle.php
+2、article-->admin-->article.manage.php
+3、article-->admin-->article.modify.php-->article.modify.handle.php
+4、article-->admin-->article.del.handle.php
+---------------------------------------------------------
+前台
+1、article.list.php
+2、article.show.php
+3、article.search.php
+4、about.php
+5、connect.php
